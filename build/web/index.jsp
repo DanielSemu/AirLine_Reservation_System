@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>My First web application</title>
     </head>
     <body>
         <h1>I tried this for the last 4 hours and this may have good result</h1>

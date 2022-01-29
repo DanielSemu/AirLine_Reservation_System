@@ -8,5 +8,7 @@
  * @author hp
  */
 public class NewClass {
-    
+    public static void main(String []ags){
+        System.out.println("hello world");
+    }
 }
