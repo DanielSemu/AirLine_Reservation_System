@@ -1,6 +1,6 @@
 <%-- 
-    Document   : index
-    Created on : Jan 23, 2022, 12:45:21 PM
+    Document   : admin_navigationbar
+    Created on : Feb 6, 2022, 3:12:20 AM
     Author     : hp
 --%>
 
@@ -9,12 +9,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Airline Reservation System</title>
+        <title>Home Page</title>
         <link rel="stylesheet" href="css/navbar.css"/>
-        
         <link rel="stylesheet" href="bootstrap/css/style.css">
     </head>
-     <style>
+    <style>
         body {
             background-position: center;
             background-repeat: no-repeat;
@@ -25,13 +24,15 @@
             padding: 80px;
         }
     </style>
-
     <body>
-        <jsp:include page="Navigationbar.jsp"></jsp:include>
-    <center>
-        <div class="container">
-            <h1>WELCOME TO AIRLINE <br>RESERVATION SYSTEM </h1>
+        <div class="topnav">
+            <a class="active" href="admin_home_page.jsp">HomePage</a>
+            <a href="Adminflight_view.jsp">Flight_info</a>
+            <a href="admin_add_flight.jsp">Add Flight</a>
+            <a href="#">Flight Report</a>
+            <a href="#">Book Ticket Report</a>
+            <a  style="float: right"href="index.jsp">logout</a>
+
         </div>
-    </center>
     </body>
 </html>
