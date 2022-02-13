@@ -10,52 +10,8 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Register User</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
         <link rel="stylesheet" href="css/navbar.css"/>
-       <%--    <script type="text/javascript" src="link">
-            function validate(){
-                var fname1=document.registeruser.fname.value;
-                if(fname1==""){
-                    alert("please enter firstname");
-                    document.registeruser.fname.focus();
-                    return flase;
-                }
-                var lname1=document.registeruser.lname.value;
-                else if(lname1==""){
-                    alert("please enter lastname");
-                    document.registeruser.lname.focus();
-                    return flase;
-                }
-                var email1=document.registeruser.email.value;
-                else if(email1==""){
-                    alert("please enter email address");
-                    document.registeruser.email.focus();
-                    return flase;
-                }
-                var passport1=document.registeruser.passport.value;
-                else if(passport1==""){
-                    alert("please enter passport");
-                    document.registeruser.passport.focus();
-                    return flase;
-                }
-                var password1=document.registeruser.password.value;
-                else if(password1==""){
-                    alert("please enter password");
-                    document.registeruser.password.focus();
-                    return flase;
-                }
-                var cpassword1=document.registeruser.cpassword.value;
-                else if(cpassword1 != password1){
-                    alert("The password does not much!");
-                    document.registeruser.cpassword.focus();
-                    return flase;
-                }
-                else{
-                   return flase; 
-                }
-                    
-            }
-            
-        </script>--%>
     </head>
     <style>
         body {
@@ -90,7 +46,7 @@
                 </ul>
                 <u1>
                     <li>
-                    <button type="submit" onClick="return validate()" name="regbtn" value="Register">Register</button>
+                        <button class="bg-success" type="submit" onClick="return validate()" name="regbtn" value="Register">Register</button>
 <!--                    <button type="submit" name="regbtn" value="Cancel"">Cancel</button>-->
                     
                     </li>

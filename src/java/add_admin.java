@@ -22,28 +22,24 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author hp
  */
-@WebServlet(urlPatterns = {"/addflight"})
-public class addflight extends HttpServlet {
-@Override
+@WebServlet(urlPatterns = {"/add_admin"})
+public class add_admin extends HttpServlet {
+
+  @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        String fligthno1=request.getParameter("flightno");
-        String flightname1=request.getParameter("flightname");
-        String source1=request.getParameter("source");
-        String destination1=request.getParameter("destination");
-        String airportname1=request.getParameter("airportname");
-        String date1=request.getParameter("date");
-        String time1=request.getParameter("time");
-        String ticketprice1=request.getParameter("ticketprice");
-        String seat1=request.getParameter("seat");
-        String comment1=request.getParameter("comment");
+        String firstname1=request.getParameter("fname");
+        String lastname1=request.getParameter("lname");
+        String email1=request.getParameter("email");
+        String password1=request.getParameter("password");
+       
         try {
             DBConnection dbcon=new DBConnection();
             Connection con=dbcon.Connection();
             
-            String sql1="select * from flight_information where Flight_no='"+fligthno1+"'";
+            String sql1="select * from admin where Email='"+email1+"'";
             PreparedStatement ps=con.prepareStatement(sql1);
            
             java.sql.ResultSet rs= ps.executeQuery();
@@ -69,9 +65,9 @@ public class addflight extends HttpServlet {
             //(FirstName,LastName, Email,Passport,Password	)
             else{
                 Statement state=con.createStatement();
-             String sql = "INSERT INTO flight_information VALUES ('"+fligthno1+"','"+flightname1+"','"+source1+"','"+destination1+"','"+airportname1+"','"+date1+"','"+time1+"','"+ticketprice1+"','"+seat1+"','"+comment1+"')";
+             String sql = "INSERT INTO admin VALUES ('"+firstname1+"','"+lastname1+"','"+email1+"','"+password1+"')";
              state.executeUpdate(sql);
-              out.println("<!DOCTYPE html>");
+             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
             out.println("<title>Servlet registeruser</title>");    
@@ -80,11 +76,15 @@ public class addflight extends HttpServlet {
             out.println("<body>");
             request.getRequestDispatcher("/admin_home_page.jsp").include(request, response);
             out.println("<center>");
-            out.print("<h1>Fligth Succesfully Added</h1>");
+            out.print("<h1>Succesfully Register</h1>");
              
             out.println("</center>");
             out.println("</body>");
             out.println("</html>");
+//             out.println("Succefully registered");
+//             String proximaPage="/admin_add_flight.jsp";
+//             RequestDispatcher rd=request.getRequestDispatcher(proximaPage);
+//             rd.forward(request, response);
             }
             
             
@@ -109,5 +109,4 @@ public class addflight extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
 }

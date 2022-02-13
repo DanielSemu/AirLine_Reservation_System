@@ -14,10 +14,11 @@
     <body>
         <div class="topnav">
             <a class="active" href="index.jsp">HomePage</a>
-            <a href="user_flight_view.jsp">Flight</a>
-            <a href="admin_login.jsp">Admin Login</a>
-            <a href="userlogin.jsp">User Login</a>
-            <a href="Registeruser.jsp">Register User</a>
+            <a href="user_flight_view.jsp">Flight Details</a>
+            <a href="#">Hi, Guest </a>
+            <a href="login.jsp" style="float: right">Login</a>
+            
+            <a href="Registeruser.jsp"style="float: right">Sign up</a>
             
         </div>
     </body>

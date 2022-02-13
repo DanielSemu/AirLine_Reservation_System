@@ -29,8 +29,8 @@
             <a class="active" href="admin_home_page.jsp">HomePage</a>
             <a href="Adminflight_view.jsp">Flight_info</a>
             <a href="admin_add_flight.jsp">Add Flight</a>
-            <a href="#">Flight Report</a>
-            <a href="#">Book Ticket Report</a>
+            <a href="flight_report.jsp">Book Ticket Report</a>
+             <a href="admin_manage_user.jsp">Manage Users</a>
             <a  style="float: right"href="index.jsp">logout</a>
 
         </div>

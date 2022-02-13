@@ -40,7 +40,7 @@
             <div class="form-group">
                 <div  class="col-sm-4"></div>
                 <div  class="col-sm-4">
-                    <h2 style="text-align: center">Flight Details</h2>
+                    <h2 style="text-align: center">Users</h2>
                 </div>
             </div>
         </center>
@@ -50,17 +50,13 @@
         <table class="table table-hover">
             <thead>
                 <tr>  
-                    <th scope="col">Flight_no</th>
-                    <th scope="col">Flight_name</th>
-                    <th scope="col">Source_city</th>
-                    <th scope="col">Destination_city</th>
-                    <th scope="col">Airport_Name</th>
-                    <th scope="col">Date</th>
-                    <th scope="col">Time</th><!-- <th scope="col">Date</th> -->
-
-                    <th scope="col">Ticket Price</th>
-                    <th scope="col">Available Seats</th>
-                    <!--                        <th scope="col">Password</th> -->
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Email Address</th>
+                    <th scope="col">Passport</th>
+                    
+                    <th scope="col">Remove</th>
+                   
 
                 </tr>
             </thead>
@@ -73,26 +69,21 @@
                 Class.forName("com.mysql.jdbc.Driver");
                 con = DriverManager.getConnection("jdbc:mysql://localhost/airline_reservation", "root", "");
                 //String query = "SELECT  Flight_no, Flight_name, Source_city,Destination_city, Date, Time, Airport_Name, Ticket_Price,Description FROM  flight_information";
-                String query = "select * from flight_information";
+                String query = "select * from user";
                 pst = con.prepareStatement(query);
                 rs = pst.executeQuery();
                 while (rs.next()) {
                     // String flight=rs.getString("Flight_no");
 %>
             <tr>
-                <th scope="row"><%= rs.getString("Flight_no")%></th>
-                <td><%=rs.getString("Flight_name")%></td>
-                <td><%=rs.getString("Source_city")%></td>
-                <td><%=rs.getString("Destination_city")%></td>
-                <td><%=rs.getString("Airport_Name")%></td>
-                <td><%=rs.getString("Date")%></td>
-                <td><%=rs.getString("Time")%></td>
-
-                <td> <%=rs.getString("Ticket_price")%></td>
-                <td> <%=rs.getString("Seat")%></td>
+                <th scope="row"><%= rs.getString("FirstName")%></th>
+                <td><%=rs.getString("LastName")%></td>
+                <td><%=rs.getString("Email")%></td>
+                <td><%=rs.getString("Passport")%></td>
+                
                 <td>
-                    <a class="btn btn-success" href="admin_edit_flight_info.jsp?id=<%=rs.getString("Flight_no")%>" role="button">Edit</a>
-                    <a class="btn btn-danger" href="admin_remove_flight.jsp?id=<%=rs.getString("Flight_no")%>" role="button" onclick="return confirm('Are you sure you want to delete?')">Remove</a>
+                    
+                    <a class="btn btn-danger" href="admin_remove_flight.jsp?id=<%=rs.getString("Passport")%>" role="button" onclick="return confirm('Are you sure you want to delete?')">Remove</a>
                 </td>               
             </tr>
             <% }%>

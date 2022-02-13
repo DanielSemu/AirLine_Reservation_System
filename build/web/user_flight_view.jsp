@@ -18,9 +18,13 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Manage Student</title>
+        <title>Flight Info </title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="./bootstrap/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="./bootstrap/css/bootstrap-theme.min.css" />
+        <link rel="stylesheet" type="text/css" href="./bootstrap/css/meu.css" />
         <link rel="stylesheet" href="css/navbar.css"/>
+        <link rel="stylesheet" href="bootstrap/css/style.css">
     </head>
      <style>
         body {
@@ -59,6 +63,7 @@
                         <th scope="col">Time</th><!-- <th scope="col">Date</th> -->
                         
                         <th scope="col">Ticket Price</th>
+                        <th scope="col">Available Seats</th>
 <!--                        <th scope="col">Password</th> -->
 
                     </tr>
@@ -71,7 +76,7 @@
                     ResultSet rs;
                     Class.forName("com.mysql.jdbc.Driver");
                     con = DriverManager.getConnection("jdbc:mysql://localhost/airline_reservation", "root", "");
-                    String query = "SELECT  Flight_no, Flight_name, Source_city,Destination_city, Date, Time, Airport_Name, Ticket_Price,Description FROM  flight_information";
+                    String query = "SELECT * FROM  flight_information";
                     pst = con.prepareStatement(query);
                     rs = pst.executeQuery();
                     while (rs.next()) {
@@ -86,6 +91,7 @@
                     <td><%=rs.getString("Time")%></td>
                     
                      <td> <%=rs.getString("Ticket_Price")%></td>
+                     <td> <%=rs.getString("Seat")%></td>
 
 <%--                    <td><a class="btn btn-success" href="userlogin.jsp?"id=<%=rs.getString("Flight_no")%>" role="button">Book</a></td>--%>
                 </tr>

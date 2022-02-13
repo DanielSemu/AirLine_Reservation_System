@@ -22,8 +22,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author hp
  */
-@WebServlet(urlPatterns = {"/admin_login_checker"})
-public class admin_login_checker extends HttpServlet {
+@WebServlet(urlPatterns = {"/login_checker"})
+public class login_checker extends HttpServlet {
 
     
     @Override
@@ -34,45 +34,56 @@ public class admin_login_checker extends HttpServlet {
         String emaila_ddress=request.getParameter("email");
         String password=request.getParameter("pass");
         try {
+            if(emaila_ddress.equals("admin@gmail.com")&& password.equals("123")){
+                 String proximaPage="/admin_home_page.jsp";
+             RequestDispatcher rd=request.getRequestDispatcher(proximaPage);
+             rd.forward(request, response);
+            }
+            else{
+            
+        
             DBConnection db=new DBConnection();
             Connection con=db.Connection();
-            String sql="select* from admin where Email=? and Password=?";
+            String sql="select* from user where Email=? and Password=?";
             
             PreparedStatement pst=con.prepareStatement(sql);
             pst.setString(1, emaila_ddress);
             pst.setString(2, password);
             ResultSet rs=pst.executeQuery();
             if(rs.next()){
-                String proximaPage="/admin_home_page.jsp";
+                String proximaPage="/user_to_book_ticket.jsp";
              RequestDispatcher rd=request.getRequestDispatcher(proximaPage);
              rd.forward(request, response);
             }
             else{
-                out.println("<!DOCTYPE html>");
+            
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet user_login_checker</title>");            
+            out.println("<title>Servlet registeruser</title>");    
+            out.println("<link rel=\"stylesheet\" href=\"css/navbar.css\"/>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>login failed</h1>");
+            request.getRequestDispatcher("/login.jsp").include(request, response);
+            out.println("<center>");
+            out.print("<h1>login failed Please try again!!</h1>");
+             
+            out.println("</center>");
             out.println("</body>");
             out.println("</html>");
             }
+            }
             
-            
+        
+    }   catch (ClassNotFoundException ex) {
+            Logger.getLogger(login_checker.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(user_login_checker.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(user_login_checker.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
+            Logger.getLogger(login_checker.class.getName()).log(Level.SEVERE, null, ex);
+        }
+finally {
             out.close();
         }
-    }
-
    
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
+  
+ 
+}
 }
